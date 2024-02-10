@@ -17,7 +17,7 @@ class Item(ItemBase):
     trainer_id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 #
 #  POKEMON
@@ -35,7 +35,7 @@ class Pokemon(PokemonBase):
     trainer_id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 #
 #  TRAINER
 #
@@ -52,4 +52,4 @@ class Trainer(TrainerBase):
     pokemons: List[Pokemon] = []
 
     class Config:
-        orm_mode = True
+        from_attributes = True
