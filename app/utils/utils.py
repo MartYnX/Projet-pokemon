@@ -2,8 +2,8 @@
 Fichier pour afficher l'âge
 """
 from datetime import date
-from ...app import models
-from ...app.sqlite import SessionLocal, engine
+from app import models
+from app.sqlite import SessionLocal, engine
 models.Base.metadata.create_all(bind=engine)
 
 def get_db():
