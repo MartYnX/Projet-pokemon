@@ -78,7 +78,7 @@ def get_three_pokemon():
        name = get_pokemon_name(identifier)
        stats = get_pokemon_stats(identifier)
        
-       data.append({name: name, stats: stats})
+       data.append({"name": name, "stats": stats})
        
     return data
         
