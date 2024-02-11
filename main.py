@@ -1,9 +1,11 @@
+"""
+fichier principale
+"""
+
 from fastapi import FastAPI
-from app.routers import trainers, pokemons, items
+from .app.routers import trainers, pokemons, items
 
-from app.utils.pokeapi import get_pokemon_stats
 
-print(get_pokemon_stats(1))
 app = FastAPI()
 
 
