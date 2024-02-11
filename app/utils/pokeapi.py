@@ -1,6 +1,7 @@
 """
 pokeapi
 """
+import random
 import requests
 
 BASE_URL = "https://pokeapi.co/api/v2"
@@ -69,3 +70,15 @@ def battle_compare_stats(first_pokemon_stats, second_pokemon_stats):
     return 'equal'
         
     
+
+def get_three_pokemon():
+    random_numbers = [random.randint(0, 100) for _ in range(3)]
+    data = []
+    for identifier in random_numbers:
+       name = get_pokemon_name(identifier)
+       stats = get_pokemon_stats(identifier)
+       
+       data.append({name: name, stats: stats})
+       
+    return data
+        
