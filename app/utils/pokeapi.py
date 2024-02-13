@@ -16,7 +16,7 @@ def get_pokemon_stats(api_id):
     """
         Get pokemon stats from the API pokeapi
     """
-    return False
+    return get_pokemon_data(api_id)['stats']
 
 def get_pokemon_data(api_id):
     """
@@ -39,3 +39,21 @@ def battle_compare_stats(first_pokemon_stats, second_pokemon_stats):
     """
         Compare given stat between two pokemons
     """
+    first_result = 0
+    second_result = 0
+    
+    for pokemon_first in first_pokemon_stats:
+        for pokemon_second in second_pokemon_stats:
+            if pokemon_first['base_stat'] > pokemon_second['base_stat']:
+                first_result += 1
+            elif pokemon_first['base_stat'] < pokemon_second['base_stat']:
+                second_result += 1
+    
+    if first_result > second_result:
+        return 'first'
+    elif first_result < second_result:
+        return 'second'
+    else:
+        return 'equal'
+        
+    
