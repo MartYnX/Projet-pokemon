@@ -13,9 +13,11 @@ router = APIRouter()
 
 @router.get("/{first_id}/{second_id}")
 async def pokemon_fight(first_id: int,second_id: int):
+    """
+    combat
+    """
     results = battle_pokemon(first_id,second_id)
     return results
-    
 @router.get("/", response_model=List[schemas.Pokemon])
 def get_pokemons(skip: int = 0, limit: int = 100, database: Session = Depends(get_db)):
     """
@@ -27,5 +29,8 @@ def get_pokemons(skip: int = 0, limit: int = 100, database: Session = Depends(ge
 
 @router.get("/aleatoire")
 def get_aleatoire():
+    """
+    Selection de 3 pokemons aléatoires
+    """
     data = get_three_pokemon()
     return data
