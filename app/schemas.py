@@ -28,9 +28,6 @@ class Item(ItemBase):
     trainer_id: int
 
     class Config:
-        """
-        configuration objet
-        """
         from_attributes = True
 
 #
@@ -57,9 +54,6 @@ class Pokemon(PokemonBase):
     trainer_id: int
 
     class Config:
-        """
-        configuration pokemon
-        """
         from_attributes = True
 #
 #  TRAINER
@@ -85,7 +79,4 @@ class Trainer(TrainerBase):
     pokemons: List[Pokemon] = []
 
     class Config:
-        """
-        configuration entraineur
-        """
         from_attributes = True
