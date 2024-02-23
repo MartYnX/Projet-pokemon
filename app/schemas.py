@@ -32,7 +32,7 @@ class Item(ItemBase):
         """
         configuration objet
         """
-        orm_mode = True
+        from_attributes = True
 
 #
 #  POKEMON
@@ -62,7 +62,7 @@ class Pokemon(PokemonBase):
         """
         configuration pokemon
         """
-        orm_mode = True
+        from_attributes = True
 #
 #  TRAINER
 #
@@ -91,4 +91,4 @@ class Trainer(TrainerBase):
         """
         configuration entraineur
         """
-        orm_mode = True
+        from_attributes = True

@@ -51,15 +51,29 @@ def add_trainer_pokemon(database: Session, pokemon: schemas.PokemonCreate, train
     return db_item
 
 
-def add_trainer_item(database: Session, item: schemas.ItemCreate, trainer_id: int):
+def add_trainer_item(database: Session, item_data: schemas.ItemCreate, trainer_id: int):
     """
-        Create an item and link it to a trainer
+    Create an item and link it to a trainer
     """
-    db_item = models.Item(**item.dict(), trainer_id=trainer_id)
+    # Récupérer l'entraîneur de la base de données par son ID
+    trainer = database.query(models.Trainer).filter(models.Trainer.id == trainer_id).first()
+
+    if not trainer:
+        raise ValueError(f"Trainer with ID {trainer_id} not found.")
+
+    # Créer l'objet Item en utilisant les données du schéma
+    db_item = models.Item(name=item_data.name, description=item_data.description, trainer_id=trainer_id)
+
+    # Ajouter l'objet à la base de données
     database.add(db_item)
     database.commit()
-    database.refresh(db_item)
+
+    # Rafraîchir l'entraîneur pour mettre à jour ses relations
+    database.refresh(trainer)
+
     return db_item
+
+
 
 
 def get_items(database: Session, skip: int = 0, limit: int = 100):
