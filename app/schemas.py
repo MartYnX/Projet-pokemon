@@ -19,7 +19,6 @@ class ItemCreate(ItemBase):
     """
     objet
     """
-    pass
 
 class Item(ItemBase):
     """
@@ -48,7 +47,6 @@ class PokemonCreate(PokemonBase):
     """
     pokemon
     """
-    pass
 
 class Pokemon(PokemonBase):
     """
@@ -77,7 +75,6 @@ class TrainerCreate(TrainerBase):
     """
     entraineur
     """
-    pass
 
 class Trainer(TrainerBase):
     """
